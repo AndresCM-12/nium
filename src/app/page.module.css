@@ -1,8 +1,100 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
+.header {
+  width: 100%;
+  padding-inline: 100px;
+  padding-block: 35px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 80px;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  z-index: 11;
+}
+.header svg {
+  width: 143px;
+  height: 70px;
+  flex-shrink: 0;
+}
+.header ul {
+  display: flex;
+  column-gap: 50px;
+  list-style: none;
+  color: white;
+  font-size: 16px;
+}
+
+/* Main Banner */
+.mainBanner {
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  height: 1050px;
+}
+.mainBanner .imageContainer {
+  width: 50%;
+  height: 100%;
+}
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-top-right-radius: 140px;
+  border-bottom-right-radius: 140px;
+  filter: brightness(0.8);
+  object-fit: cover;
+}
+.svgMainBanner {
+  position: absolute;
+  top: 266px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 284px;
+  height: 294px;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.textContainer {
+  width: 50%;
+  height: 826px;
+  background: #013a50;
+  display: grid;
+  place-items: center;
+  color: white;
+  position: relative;
+}
+.textContainer .mainText p {
+  max-width: 350px;
+}
+.mainBanner .floatingContainer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  transform:translateY(50%) translateX(-50%);
+}
+.mainBanner .floatingContainer h4 {
+  color: #fff;
+  text-align: center;
+  font-family: Raleway;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 12px;
+  margin-bottom: 12px;
+}
+.mainBanner .floatingContainer p {
+  border-radius: 55px;
+  background: #d9d9d9;
+  padding: 25px 143px;
+  color: #013a50;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+/* Main Banner */
