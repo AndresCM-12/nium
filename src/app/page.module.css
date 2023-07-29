@@ -39,6 +39,8 @@
 .mainBanner .imageContainer {
   width: 50%;
   height: 100%;
+  border-bottom-right-radius: 140px;
+  background-color: #013a50;
 }
 .imageContainer img {
   width: 100%;
@@ -75,12 +77,11 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
-  transform:translateY(50%) translateX(-50%);
+  transform: translateY(50%) translateX(-50%);
 }
 .mainBanner .floatingContainer h4 {
   color: #fff;
   text-align: center;
-  font-family: Raleway;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -97,4 +98,185 @@
   width: 100%;
   text-align: center;
 }
+.mainBanner .mainText h5 {
+  color: #fff;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 12px;
+}
+.mainBanner .mainText p {
+  color: #fff;
+  text-align: justify;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 16px;
+}
+.mainBanner .mainText a {
+  color: #fff;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: relative;
+}
+.mainBanner .mainText a::after {
+  background: #fff;
+  width: 30px;
+  height: 2px;
+  flex-shrink: 0;
+  position: absolute;
+  bottom: -4px;
+  left: 0px;
+  content: "";
+}
 /* Main Banner */
+
+/* Services */
+.servicesWrapper {
+  margin-top: 200px;
+}
+.servicesWrapper h1 {
+  color: #013a50;
+  text-align: center;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 16px;
+  margin-bottom: 40px;
+}
+.servicesWrapper .services {
+  display: flex;
+  flex-wrap: wrap;
+  height: 460px;
+}
+.servicesWrapper .service {
+  height: 100%;
+  width: 16.66%;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.servicesWrapper .service h3 {
+  color: #fff;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 30px;
+  max-width: 220px;
+  text-align: left;
+}
+.servicesWrapper .service img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: brightness(0.4);
+  z-index: -1;
+}
+/* Services */
+
+/* ourClients */
+.ourClients {
+  padding-top: 90px;
+  padding-bottom: 120px;
+  background-color: #f5f5f5;
+  padding-inline: 120px;
+  margin-bottom: 200px;
+}
+.ourClients h1 {
+  color: #013a50;
+  text-align: center;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 16px;
+  margin-bottom: 80px;
+}
+.ourClients .place {
+  width: 370px;
+}
+.ourClients .placeTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  column-gap: 20px;
+}
+.ourClients .placeTitleContainer span {
+  width: 100%;
+  background: #d9d9d9;
+  height: 4px;
+  max-width: 60px;
+}
+.ourClients .place p {
+  color: #013a50;
+  text-align: justify;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.ourClients .googleMaps {
+  width: 144px;
+  height: 177px;
+  border-radius: 12px;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-40%);
+  right: -10%;
+}
+.ourClients .place img {
+  height: 210px;
+  width: 100%;
+  object-fit: cover;
+}
+/* ourClients */
+
+/* formWrapper */
+.footer {
+  background: #898989;
+  padding-inline: 120px;
+  padding-block-end: 50px;
+  padding-block-start: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+}
+.footer .footerLeft {
+  display: flex;
+  column-gap: 80px;
+  align-items: flex-start;
+}
+.footer .footerLeft h6 {
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 13px;
+}
+.footer .footerLeft p {
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+.footer .footerRight {
+  display: flex;
+  column-gap: 20px;
+}
+
+/* formWrapper */
