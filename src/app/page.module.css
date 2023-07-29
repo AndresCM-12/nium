@@ -183,6 +183,64 @@
 }
 /* Services */
 
+/* Advantage */
+.advantageContainer {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-between;
+  padding-inline: 120px;
+  margin-block: 215px;
+}
+
+.advantageVector {
+  width: 280px;
+  height: 290px;
+  position: relative;
+  margin-inline-start: 12px;
+}
+
+.advantageHouse {
+  width: 980px;
+  height: 320px;
+}
+
+.advantageHouse img {
+  border-radius: 33px;
+}
+
+.advantageText {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  margin-block: auto;
+  transform: translateY(-40%);
+}
+
+.advantageText p {
+  color: #013a50;
+  text-align: justify;
+  font-size: 15px;
+  font-weight: 400;
+  width: 637px;
+  height: 135px;
+}
+
+.advantageText h1 {
+  color: #013a50;
+  font-size: 34px;
+  font-weight: 300;
+  letter-spacing: 16px;
+  margin-bottom: 30px;
+}
+
+
+
+/* Advantage */
+
+
 /* ourClients */
 .ourClients {
   padding-top: 90px;

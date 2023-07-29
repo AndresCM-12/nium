@@ -20,6 +20,8 @@ import imgPlaceAndares from "../../public/places/andares.jpg";
 import imgPlaceSanMiguel from "../../public/places/fraccionamientoSanMiguel.jpg";
 import imgPlacepaseoBasari from "../../public/places/paseoBasari.jpg";
 import imgPlacePuertaNorte from "../../public/places/puertaNorte.jpg";
+import advantageHouse from "../../public/advantage/house.jpeg";
+
 
 export default function Home() {
   return (
@@ -259,6 +261,53 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className={styles.advantageContainer}>
+        <div className={styles.advantageVector}>
+          <svg
+            width="270"
+            height="280"
+            viewBox="0 0 270 280"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M141.332 39.2712C154.265 61.4633 188.841 118.764 188.841 118.764C197.83 132.74 208.817 140.006 224.546 140.052H234.974H242.456H246.063H247.13V123.562C239.077 110.25 221.544 81.4052 185.77 22.7589C177.118 8.85163 160.486 0.154589 142.36 0.103059L129.712 0.068706L117.059 0.034353L104.405 0L104.331 9.63602C119.496 10.5235 127.983 16.3635 141.332 39.2712Z"
+              fill="#D9D9D9"
+            />
+            <path
+              d="M270 265.137C249.345 265.137 240.322 254.373 229.535 236.704C215.021 212.937 185.017 163.526 102.83 28.8107C91.8891 11.1762 70.8973 0.194667 48.0107 0.131687L32.0299 0.0858826L16.0492 0.045804L0.0970258 0L0 12.1667C19.1483 13.3118 25.5007 15.6822 46.7151 49.5771C111.865 153.707 170.081 253.302 170.081 253.302C180.148 269.185 190.365 278.185 208.417 279.84L240.23 279.971V279.977H269.863V265.188L270 265.137Z"
+              fill="#D9D9D9"
+            />
+          </svg>
+          <div className={styles.advantageText}>
+            <h1>VENTAJAS</h1>
+            <p>
+              Contamos con un equipo bien organizado y propositivo cuyo objetivo
+              es el apoyar a los condominios en su operación diaria. Ofreciendo
+              un trabajo eficiente, siempre cuidando el capital del cliente como
+              si fuese propio. De igual forma apoyando en la administración y
+              recaudación de cuotas cotidiana, llevando una cobranza constante.
+              Cuidando en todo momento que las actividades que estén en nuestro
+              encargo sean debidamente culminadas.
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.advantageHouse}>
+          <Image
+            priority={false}
+            src={advantageHouse}
+            alt="Casa"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+      </section>
+
       <section className={styles.ourClients}>
         <h1>Nuestros clientes</h1>
         <Swiper
