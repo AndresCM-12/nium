@@ -18,15 +18,38 @@ import imgServiceBodegas from "../../public/servicios/bodegas.jpg";
 //places
 import imgPlaceAndares from "../../public/places/andares.jpg";
 import imgPlaceSanMiguel from "../../public/places/fraccionamientoSanMiguel.jpg";
-import imgPlacepaseoBasari from "../../public/places/paseoBasari.jpg";
+import imgPlacepaseoBasari from "../../public/places/paseoBasari.png";
 import imgPlacePuertaNorte from "../../public/places/puertaNorte.jpg";
 import advantageHouse from "../../public/advantage/house.jpeg";
-
+//maps
+import mapPuerta from "../../public/places/mapPuertaNorte.png";
+import mapAndares from "../../public/places/mapAndares.png";
+import mapFraccionamiento from "../../public/places/mapFraccionamient.png";
+import mapBasari from "../../public/places/mapBasari.png";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [menuScrolling, setMenuScrolling] = useState(false);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 10) {
+      setMenuScrolling(true);
+    } else {
+      setMenuScrolling(false);
+    }
+  });
   return (
     <main className={styles.main}>
-      <header className={styles.header}>
+      <motion.header
+        initial={{ top: -50, opacity: 0 }}
+        whileInView={{ top: 0, opacity: 1 }}
+        style={{
+          paddingBlock: menuScrolling ? "20px" : "40px",
+          backgroundColor: menuScrolling ? "#ffffff" : "transparent",
+        }}
+        className={styles.header}
+      >
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +195,64 @@ export default function Home() {
             </defs>
           </svg>
         </div>
-        <nav>
+        <div
+          onClick={() => {
+            setIsMobile(!isMobile);
+          }}
+          className={styles.click}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="ionicon"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
+              strokeWidth="32"
+              d="M80 160h352M80 256h352M80 352h352"
+            />
+          </svg>
+        </div>
+        <nav className={styles.desktopMenu}>
+          <ul
+            style={{
+              color: menuScrolling ? "#013a50" : "white",
+            }}
+          >
+            <li>
+              <a href="#nosotros">Nosotros</a>
+            </li>
+            <li>
+              <a href="#servicios">Servicios</a>
+            </li>
+            <li>
+              <a href="#curriculum">Currículum</a>
+            </li>
+            <li>
+              <a href="#ventajas">Ventajas</a>
+            </li>
+          </ul>
+        </nav>
+      </motion.header>
+      <div
+        className={styles.mobileMenu}
+        style={{
+          top: isMobile ? "0" : "-100%",
+          display: isMobile ? "block" : "none",
+        }}
+        onClick={() => {
+          //with out event propagation
+          setIsMobile(!isMobile);
+        }}
+      >
+        <motion.nav
+          initial={{ top: -50, opacity: 0 }}
+          whileInView={{ top: 0, opacity: 1 }}
+          className={styles.right}
+        >
           <ul>
             <li>
               <a href="#">Nosotros</a>
@@ -187,9 +267,10 @@ export default function Home() {
               <a href="#">Ventajas</a>
             </li>
           </ul>
-        </nav>
-      </header>
-      <section className={styles.mainBanner}>
+        </motion.nav>
+      </div>
+
+      <section className={styles.mainBanner} id="nosotros">
         <div className={styles.imageContainer}>
           <Image src={imgMainBanner} alt="main banner" />
           <svg
@@ -232,37 +313,38 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className={styles.servicesWrapper}>
+
+      <section className={styles.servicesWrapper} id="servicios">
         <h1>Servicios</h1>
         <div className={styles.services}>
           <div className={styles.service}>
-            <Image src={imgServiceAdmon} />
+            <Image src={imgServiceAdmon} alt="servicio" />
             <h3>Administración de plazas comerciales.</h3>
           </div>
           <div className={styles.service}>
-            <Image src={imgServiceDepartamentos} />
+            <Image src={imgServiceDepartamentos} alt="servicio" />
             <h3>Administración de departamentos.</h3>
           </div>
           <div className={styles.service}>
-            <Image src={imgServiceFraccionamientos} />
+            <Image src={imgServiceFraccionamientos} alt="servicio" />
             <h3>Administración de fraccionamientos.</h3>
           </div>
           <div className={styles.service}>
-            <Image src={imgServicIndustrial} />
+            <Image src={imgServicIndustrial} alt="servicio" />
             <h3>Administración de industrial.</h3>
           </div>
           <div className={styles.service}>
-            <Image src={imgServiceBodegas} />
+            <Image src={imgServiceBodegas} alt="servicio" />
             <h3>Administración de bodegas.</h3>
           </div>
           <div className={styles.service}>
-            <Image src={imgServiceInmobiliario} />
+            <Image src={imgServiceInmobiliario} alt="servicio" />
             <h3>Administración de cualquier giro inmobiliario.</h3>
           </div>
         </div>
       </section>
 
-      <section className={styles.advantageContainer}>
+      <section className={styles.advantageContainer} id="ventajas">
         <div className={styles.advantageVector}>
           <svg
             width="270"
@@ -308,7 +390,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.ourClients}>
+      <section className={styles.ourClients} id="curriculum">
         <h1>Nuestros clientes</h1>
         <Swiper
           loop={false}
@@ -327,7 +409,9 @@ export default function Home() {
               <span></span>
             </div>
             <Image src={imgPlaceAndares} alt="review" />
-            <div className={styles.googleMaps}></div>
+            <div className={styles.googleMaps}>
+              <Image src={mapAndares} alt="google maps" />
+            </div>
           </SwiperSlide>
           <SwiperSlide className={styles.place}>
             <div className={styles.placeTitleContainer}>
@@ -335,7 +419,9 @@ export default function Home() {
               <span></span>
             </div>
             <Image src={imgPlacePuertaNorte} alt="review" />
-            <div className={styles.googleMaps}></div>
+            <div className={styles.googleMaps}>
+              <Image src={mapPuerta} alt="google maps" />
+            </div>
           </SwiperSlide>
           <SwiperSlide className={styles.place}>
             <div className={styles.placeTitleContainer}>
@@ -343,7 +429,9 @@ export default function Home() {
               <span></span>
             </div>
             <Image src={imgPlacepaseoBasari} alt="review" />
-            <div className={styles.googleMaps}></div>
+            <div className={styles.googleMaps}>
+              <Image src={mapBasari} alt="google maps" />
+            </div>
           </SwiperSlide>
           <SwiperSlide className={styles.place}>
             <div className={styles.placeTitleContainer}>
@@ -351,11 +439,66 @@ export default function Home() {
               <span></span>
             </div>
             <Image src={imgPlaceSanMiguel} alt="review" />
-            <div className={styles.googleMaps}></div>
+            <div className={styles.googleMaps}>
+              <Image src={mapFraccionamiento} alt="google maps" />
+            </div>
           </SwiperSlide>
         </Swiper>
       </section>
-      <section className={styles.formWrapper}></section>
+
+      <section className={styles.formWrapper}>
+        <div className={styles.leftContainer}>
+          <h1>CONTÁCTANOS</h1>
+          <div className={styles.floating}></div>
+
+          <form action="https://formsubmit.co/q.chavezandres@gmail.com" method="POST">
+            <input
+              placeholder="Tu nombre*"
+              type="text"
+              name="Nombre"
+              required
+            />
+            <input
+              placeholder="Teléfono de contacto*"
+              type="number"
+              name="Teléfono de contacto"
+              required
+            />
+            <input
+              placeholder="Tu correo electrónico*"
+              type="email"
+              name="Email"
+              required
+            />
+            <textarea
+              placeholder="Tu mensaje"
+              type="text"
+              name="Mensaje"
+              required
+            />
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+        <div className={styles.rightContainer}>
+          <div className={styles.textWrapper}>
+            <h1>
+              DATOS DE <br /> CONTACTO
+            </h1>
+            <p>
+              Oficina
+              <br /> (614) 245-2228
+            </p>
+            <p>
+              Carlos Contreras
+              <br /> (614) 125-8536
+            </p>
+            <p>
+              Rodrigo Mesta <br /> (614) 169-0634
+            </p>
+            <p>contacto@nium.mx</p>
+          </div>
+        </div>
+      </section>
 
       <footer className={styles.footer}>
         <div className={styles.footerLeft}>
