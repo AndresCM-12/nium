@@ -273,14 +273,12 @@ export default function Home() {
       </div>
 
       <section className={styles.mainBanner} id="nosotros">
-        <motion.div
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          viewport={{ once: true }}
-          className={styles.imageContainer}
-        >
+        <div className={styles.imageContainer}>
           <Image src={imgMainBanner} alt="main banner" />
-          <svg
+          <motion.svg
+            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            viewport={{ once: true, marginTop: 100 }}
             className={styles.svgMainBanner}
             width="284"
             height="294"
@@ -296,15 +294,15 @@ export default function Home() {
               d="M284 278.393C262.274 278.393 252.783 267.091 241.436 248.539C226.17 223.584 194.61 171.702 108.162 30.2513C96.6538 11.735 74.5735 0.2044 50.5001 0.138271L33.6907 0.0901767L16.8814 0.0480942L0.102057 0L0 12.775C20.1412 13.9774 26.8229 16.4663 49.1373 52.056C117.665 161.392 178.9 265.967 178.9 265.967C189.489 282.644 200.235 292.094 219.224 293.832L252.687 293.97V293.976H283.856V278.448L284 278.393Z"
               fill="white"
             />
-          </svg>
-        </motion.div>
-        <motion.div
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          className={styles.textContainer}
-        >
-          <div className={styles.mainText}>
+          </motion.svg>
+        </div>
+        <div className={styles.textContainer}>
+          <motion.div
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            className={styles.mainText}
+          >
             <h5>¿POR QUÉ NIUM?</h5>
             <p>
               Buscamos la operación exitosa de tus inmuebles mediante un equipo
@@ -314,24 +312,30 @@ export default function Home() {
               tú puedas enfocar tu tiempo en crecer o diversificar tu negocio.
             </p>
             <a href="#form">Contáctanos</a>
-          </div>
-          <div className={styles.floatingContainer}>
+          </motion.div>
+          <motion.div
+            viewport={{ once: true }}
+            whileInView={{ bottom: 0, opacity: 1 }}
+            initial={{ bottom: -10, opacity: 0 }}
+            className={styles.floatingContainer}
+          >
             <h4>QUIENES SOMOS</h4>
             <p>
               NIUM es una empresa de administración inmobiliaria enfocada en el
               servicio al cliente, optimización de recursos, mantenimiento
               preventivo, mejora continua y servicios legales.
             </p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       <section className={styles.servicesWrapper} id="servicios">
         <h1>Servicios</h1>
         <motion.div
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-280px" }}
           initial={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
           className={styles.services}
         >
           <div className={styles.service}>
@@ -362,12 +366,7 @@ export default function Home() {
       </section>
 
       <section className={styles.advantageContainer} id="ventajas">
-        <motion.div
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          className={styles.advantageVector}
-        >
+        <div className={styles.advantageVector}>
           <svg
             width="270"
             height="280"
@@ -384,7 +383,13 @@ export default function Home() {
               fill="#D9D9D9"
             />
           </svg>
-          <div className={styles.advantageText}>
+          <motion.div
+            className={styles.advantageText}
+            viewport={{ once: true, margin: "-210px" }}
+            whileInView={{ opacity: 1, left: 100 }}
+            initial={{ opacity: 0, left: -200 }}
+            transition={{ duration: 1.5 }}
+          >
             <h1>VENTAJAS</h1>
             <p>
               Contamos con un equipo bien organizado y propositivo cuyo objetivo
@@ -395,15 +400,10 @@ export default function Home() {
               Cuidando en todo momento que las actividades que estén en nuestro
               encargo sean debidamente culminadas.
             </p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
-        <motion.div
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          className={styles.advantageHouse}
-        >
+        <div className={styles.advantageHouse}>
           <Image
             priority={false}
             src={advantageHouse}
@@ -414,13 +414,21 @@ export default function Home() {
               objectFit: "cover",
             }}
           />
-        </motion.div>
+        </div>
       </section>
 
       <section className={styles.ourClients} id="curriculum">
-        <h1>Nuestros clientes</h1>
+        <motion.h1
+          viewport={{ once: true, margin: "-210px" }}
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
+        >
+          Nuestros clientes
+        </motion.h1>
+
         <Swiper
-          loop={false}
+          loop={true}
           autoplay={{
             delay: 5,
             disableOnInteraction: false,
@@ -471,19 +479,63 @@ export default function Home() {
             </div>
           </SwiperSlide>
         </Swiper>
+        <div
+          style={{
+            display: "flex",
+            marginTop: "20px",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            className={styles.arrows}
+            id="arrowLeft"
+            style={{
+              padding: 20,
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="36"
+              viewBox="0 0 16 36"
+              fill="none"
+            >
+              <path d="M15 1L1 18L15 35" stroke="#00318D" />
+            </svg>
+          </div>
+          <div
+            className={styles.arrows}
+            id="arrowRight"
+            style={{
+              padding: 20,
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="36"
+              viewBox="0 0 16 36"
+              fill="none"
+            >
+              <path d="M1 35L15 18L1 1" stroke="#00318D" />
+            </svg>
+          </div>
+        </div>
       </section>
 
       <section className={styles.formWrapper} id="form">
-        <motion.div
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          className={styles.leftContainer}
-        >
+        <div className={styles.leftContainer}>
           <h1>CONTÁCTANOS</h1>
           <div className={styles.floating}></div>
 
-          <form action="https://formsubmit.co/contacto@nium.mx" method="POST">
+          <motion.form
+            viewport={{ once: true, margin: "-210px" }}
+            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            transition={{ duration: 1.5 }}
+            action="https://formsubmit.co/contacto@nium.mx"
+            method="POST"
+          >
             <input
               placeholder="Tu nombre*"
               type="text"
@@ -509,13 +561,14 @@ export default function Home() {
               required
             />
             <button type="submit">Enviar</button>
-          </form>
-        </motion.div>
+          </motion.form>
+        </div>
         <div className={styles.rightContainer}>
           <motion.div
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
+            viewport={{ once: true, margin: "-210px" }}
+            whileInView={{ opacity: 1, margin: "0px" }}
+            initial={{ opacity: 0, margin: "-210px" }}
+            transition={{ duration: 1.5 }}
             className={styles.textWrapper}
           >
             <h1>

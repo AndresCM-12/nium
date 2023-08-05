@@ -5,7 +5,7 @@ const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Nium",
-  description: "Cool page",
+  description: "Administración inmobiliaria",
 };
 
 export default function RootLayout({ children }) {

@@ -535,7 +535,7 @@
     border-bottom-right-radius: 0px;
     height: 500px;
   }
-  .mainBanner{
+  .mainBanner {
     height: 1136px;
   }
   .mainBanner .imageContainer img {
@@ -578,7 +578,7 @@
     max-width: 500px;
   }
   .advantageText {
-    left: 0px;
+    left: 0px !important;
   }
 }
 @media screen and (max-width: 1045px) {
