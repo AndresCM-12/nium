@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.css";
-import imgMainBanner from "../../public/mainBanner.jpg";
+import imgMainBanner from "../../public/mainBanner.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,11 +10,11 @@ import SwiperCore, { Autoplay } from "swiper";
 import { useEffect, useState, useRef } from "react";
 // Services images
 import imgServiceAdmon from "../../public/servicios/administracion.jpg";
-import imgServiceInmobiliario from "../../public/servicios/inmobiliario.jpg";
+import imgServiceInmobiliario from "../../public/servicios/inmobiliario.png";
 import imgServicIndustrial from "../../public/servicios/industrial.jpg";
 import imgServiceFraccionamientos from "../../public/servicios/faccionamientos.jpg";
 import imgServiceDepartamentos from "../../public/servicios/departamentos.jpg";
-import imgServiceBodegas from "../../public/servicios/bodegas.jpg";
+import imgServiceBodegas from "../../public/servicios/bodegas.png";
 //places
 import imgPlaceAndares from "../../public/places/andares.jpg";
 import imgPlaceSanMiguel from "../../public/places/fraccionamientoSanMiguel.jpg";
@@ -237,6 +237,8 @@ export default function Home() {
           </ul>
         </nav>
       </motion.header>
+
+      {/* Mobile menu */}
       <div
         className={styles.mobileMenu}
         style={{
@@ -255,23 +257,28 @@ export default function Home() {
         >
           <ul>
             <li>
-              <a href="#">Nosotros</a>
+              <a href="#nosotros">Nosotros</a>
             </li>
             <li>
-              <a href="#">Servicios</a>
+              <a href="#servicios">Servicios</a>
             </li>
             <li>
-              <a href="#">Currículum</a>
+              <a href="#curriculum">Currículum</a>
             </li>
             <li>
-              <a href="#">Ventajas</a>
+              <a href="#ventajas">Ventajas</a>
             </li>
           </ul>
         </motion.nav>
       </div>
 
       <section className={styles.mainBanner} id="nosotros">
-        <div className={styles.imageContainer}>
+        <motion.div
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          viewport={{ once: true }}
+          className={styles.imageContainer}
+        >
           <Image src={imgMainBanner} alt="main banner" />
           <svg
             className={styles.svgMainBanner}
@@ -290,8 +297,13 @@ export default function Home() {
               fill="white"
             />
           </svg>
-        </div>
-        <div className={styles.textContainer}>
+        </motion.div>
+        <motion.div
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          className={styles.textContainer}
+        >
           <div className={styles.mainText}>
             <h5>¿POR QUÉ NIUM?</h5>
             <p>
@@ -301,7 +313,7 @@ export default function Home() {
               los usuarios, proveedores e instancias gubernamentales, para que
               tú puedas enfocar tu tiempo en crecer o diversificar tu negocio.
             </p>
-            <a>Contáctanos</a>
+            <a href="#form">Contáctanos</a>
           </div>
           <div className={styles.floatingContainer}>
             <h4>QUIENES SOMOS</h4>
@@ -311,12 +323,17 @@ export default function Home() {
               preventivo, mejora continua y servicios legales.
             </p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className={styles.servicesWrapper} id="servicios">
         <h1>Servicios</h1>
-        <div className={styles.services}>
+        <motion.div
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          initial={{ opacity: 0 }}
+          className={styles.services}
+        >
           <div className={styles.service}>
             <Image src={imgServiceAdmon} alt="servicio" />
             <h3>Administración de plazas comerciales.</h3>
@@ -341,11 +358,16 @@ export default function Home() {
             <Image src={imgServiceInmobiliario} alt="servicio" />
             <h3>Administración de cualquier giro inmobiliario.</h3>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className={styles.advantageContainer} id="ventajas">
-        <div className={styles.advantageVector}>
+        <motion.div
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          className={styles.advantageVector}
+        >
           <svg
             width="270"
             height="280"
@@ -374,9 +396,14 @@ export default function Home() {
               encargo sean debidamente culminadas.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className={styles.advantageHouse}>
+        <motion.div
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          className={styles.advantageHouse}
+        >
           <Image
             priority={false}
             src={advantageHouse}
@@ -387,7 +414,7 @@ export default function Home() {
               objectFit: "cover",
             }}
           />
-        </div>
+        </motion.div>
       </section>
 
       <section className={styles.ourClients} id="curriculum">
@@ -446,12 +473,17 @@ export default function Home() {
         </Swiper>
       </section>
 
-      <section className={styles.formWrapper}>
-        <div className={styles.leftContainer}>
+      <section className={styles.formWrapper} id="form">
+        <motion.div
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          className={styles.leftContainer}
+        >
           <h1>CONTÁCTANOS</h1>
           <div className={styles.floating}></div>
 
-          <form action="https://formsubmit.co/q.chavezandres@gmail.com" method="POST">
+          <form action="https://formsubmit.co/contacto@nium.mx" method="POST">
             <input
               placeholder="Tu nombre*"
               type="text"
@@ -478,30 +510,43 @@ export default function Home() {
             />
             <button type="submit">Enviar</button>
           </form>
-        </div>
+        </motion.div>
         <div className={styles.rightContainer}>
-          <div className={styles.textWrapper}>
+          <motion.div
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            className={styles.textWrapper}
+          >
             <h1>
               DATOS DE <br /> CONTACTO
             </h1>
             <p>
               Oficina
-              <br /> (614) 245-2228
+              <br /> <a href="tel:+526142452228">(614) 245-2228</a>
             </p>
             <p>
               Carlos Contreras
-              <br /> (614) 125-8536
+              <br /> <a href="https://wa.me/526141258536">(614) 125-8536</a>
             </p>
             <p>
-              Rodrigo Mesta <br /> (614) 169-0634
+              Rodrigo Mesta <br />{" "}
+              <a href="https://wa.me/526141690634">(614) 169-0634</a>
             </p>
-            <p>contacto@nium.mx</p>
-          </div>
+            <p>
+              <a href="mailto:contacto@nium.mx">contacto@nium.mx</a>
+            </p>
+          </motion.div>
         </div>
       </section>
 
       <footer className={styles.footer}>
-        <div className={styles.footerLeft}>
+        <motion.div
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          className={styles.footerLeft}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="111"
@@ -647,19 +692,24 @@ export default function Home() {
           </svg>
           <div>
             <h6>Nav</h6>
-            <p>Nosotros</p>
-            <p>Servicios</p>
-            <p>Currículum</p>
-            <p>Ventajas</p>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#curriculum">Currículum</a>
+            <a href="#ventajas">Ventajas</a>
           </div>
           <div>
             <h6>Contacto</h6>
-            <p>contacto@nium.mx</p>
-            <p>(614) 245-2228</p>
+            <a href="mailto:contacto@nium.mx">contacto@nium.mx</a>
+            <a href="https://wa.me/526142452228">(614) 245-2228</a>
           </div>
-        </div>
+        </motion.div>
 
-        <div className={styles.footerRight}>
+        <motion.div
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          className={styles.footerRight}
+        >
           <svg
             width="16"
             height="16"
@@ -684,7 +734,7 @@ export default function Home() {
               fill="white"
             />
           </svg>
-        </div>
+        </motion.div>
       </footer>
     </main>
   );
