@@ -428,7 +428,9 @@ export default function Home() {
         </motion.h1>
 
         <Swiper
-          loop={true}
+          //add more time to the transition
+          speed={1000}
+          loop={false}
           autoplay={{
             delay: 5,
             disableOnInteraction: false,
