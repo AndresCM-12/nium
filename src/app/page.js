@@ -577,16 +577,8 @@ export default function Home() {
               DATOS DE <br /> CONTACTO
             </h1>
             <p>
-              Oficina
-              <br /> <a href="tel:+526142452228">(614) 245-2228</a>
-            </p>
-            <p>
-              Carlos Contreras
+              Contacto
               <br /> <a href="https://wa.me/526141258536">(614) 125-8536</a>
-            </p>
-            <p>
-              Rodrigo Mesta <br />{" "}
-              <a href="https://wa.me/526141690634">(614) 169-0634</a>
             </p>
             <p>
               <a href="mailto:contacto@nium.mx">contacto@nium.mx</a>
